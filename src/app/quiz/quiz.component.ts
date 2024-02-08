@@ -7,36 +7,25 @@ import { QuestionService } from './../service/question.service';
   styleUrl: './quiz.component.scss'
 })
 export class QuizComponent  implements OnInit{
-  formData: any = {
-    "questionText": "Which of the following does TypeScript use to specify types?",
-    "options": [
-      {
-        "text": ":",
-        "correct": true
-      },
-      {
-        "text": ";"
-      },
-      {
-        "text": "!"
-      },
-      {
-        "text": "&"
-      }
-    ],
-    "explanation": "TS uses a colon (:) to separate the property name from the property type"
-  }; 
-
+tt() {
+this.formData.options.push({});
+}
+ 
+  formData: any = {"options": [ {
+          "text": "",
+          "correct": false
+        },]};
 
   onSubmit() {
+    console.log(this.formData);
     
-    this.questionService.postQuestionJson(this.formData).subscribe(response => {
-      console.log('Response:', response);
-      // Handle response as needed
-    }, error => {
-      console.error('Error:', error);
-      // Handle error as needed
-    });
+    // this.questionService.postQuestionJson(this.formData).subscribe(response => {
+    //   console.log('Response:', response);
+    //   // Handle response as needed
+    // }, error => {
+    //   console.error('Error:', error);
+    //   // Handle error as needed
+    // });
   }
 
   constructor(private questionService: QuestionService) {}

@@ -25,7 +25,6 @@
         {
           "text": "number"
         },
-     
         {
           "text": "enum",
           "correct": true
@@ -185,6 +184,13 @@
         }
       ],
       "explanation": "TS uses a colon (:) to separate the property name from the property type"
+    },
+    {
+      "id": "d01f",
+      "questionText": "what is your name ?"
+    },
+    {
+      "id": "3054"
     }
   ]
 }
