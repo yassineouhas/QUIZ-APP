@@ -1,24 +1,23 @@
-import { Component ,OnInit } from '@angular/core';
-import { QuestionService } from './../service/question.service';
+// quiz.component.ts
+
+import { Component, OnInit } from '@angular/core';
+import { QuestionService } from './../service/question.service'; 
 
 @Component({
   selector: 'app-quiz',
   templateUrl: './quiz.component.html',
-  styleUrl: './quiz.component.scss'
+  styleUrls: ['./quiz.component.scss']
 })
-export class QuizComponent  implements OnInit{
-tt() {
-this.formData.options.push({});
-}
- 
-  formData: any = {"options": [ {
-          "text": "",
-          "correct": false
-        },]};
+export class QuizComponent implements OnInit {
+  formData: any = { "options": [{ "text": "", "correct": false }] };
+
+  constructor(private questionService: QuestionService) {}
+
+  ngOnInit(): void {}
 
   onSubmit() {
     console.log(this.formData);
-    
+
     // this.questionService.postQuestionJson(this.formData).subscribe(response => {
     //   console.log('Response:', response);
     //   // Handle response as needed
@@ -28,9 +27,14 @@ this.formData.options.push({});
     // });
   }
 
-  constructor(private questionService: QuestionService) {}
-  ngOnInit(): void { }
- 
- 
+  tt() {
+    this.formData.options.push({ "text": "", "correct": false });
+  }
 
+  trackByFn(index: any, item: any) {
+    return index;
+  }
+  deleteOption(index: number) {
+    this.formData.options.splice(index, 1);
+  }
 }
