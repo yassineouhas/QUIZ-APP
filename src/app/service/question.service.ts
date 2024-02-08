@@ -11,4 +11,9 @@ export class QuestionService {
   getQuestionJson() {
     return this.http.get<any>('assets/questions.json');
   }
+  postQuestionJson(data: any) {
+   
+    return this.http.post<any>('assets/questions.json',data);
+  }
+ 
 }
