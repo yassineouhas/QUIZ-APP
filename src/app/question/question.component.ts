@@ -29,7 +29,7 @@ export class QuestionComponent implements OnInit {
 
   getAllQuestions() {
     this.questionService.getQuestionJson().subscribe((res) => {
-      this.questionList = res.questions;
+      this.questionList = res;
     });
   }
 
