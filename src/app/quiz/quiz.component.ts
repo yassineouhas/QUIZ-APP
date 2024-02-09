@@ -21,6 +21,8 @@ export class QuizComponent implements OnInit {
     this.questionService.postQuestionJson(this.formData).subscribe(response => {
       console.log('Response:', response);
       // Handle response as needed
+      this.formData={ "options": [{ "text": "", "correct": false }] };
+
     }, error => {
       console.error('Error:', error);
       // Handle error as needed
