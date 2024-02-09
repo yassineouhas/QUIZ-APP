@@ -7,7 +7,6 @@ import { Component, Input } from '@angular/core';
 export class OptionListComponent {
   @Input() options: any[]=[];
 
-
   deleteOption(index: number) {
     this.options.splice(index, 1);
   }

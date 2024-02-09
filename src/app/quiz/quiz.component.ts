@@ -18,16 +18,16 @@ export class QuizComponent implements OnInit {
   onSubmit() {
     console.log(this.formData);
 
-    // this.questionService.postQuestionJson(this.formData).subscribe(response => {
-    //   console.log('Response:', response);
-    //   // Handle response as needed
-    // }, error => {
-    //   console.error('Error:', error);
-    //   // Handle error as needed
-    // });
+    this.questionService.postQuestionJson(this.formData).subscribe(response => {
+      console.log('Response:', response);
+      // Handle response as needed
+    }, error => {
+      console.error('Error:', error);
+      // Handle error as needed
+    });
   }
 
-  tt() {
+  addOption() {
     this.formData.options.push({ "text": "", "correct": false });
   }
 

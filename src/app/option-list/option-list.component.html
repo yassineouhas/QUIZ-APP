@@ -1,9 +1,11 @@
 <ul class="list-reset">
-    <li *ngFor="let x of options; let i = index; trackBy: trackByFn" class="relative flex items-center justify-between px-2 py-1 ">
+    <li *ngFor="let opt of options; let i = index; trackBy: trackByFn" class="relative flex items-center justify-between px-2 py-1 ">
       <div>
-        <p class="inline-block mr-2 text-gray-600">Options {{i+1}}</p>
-        <input type="checkbox" class="mr-2" name="correct" [(ngModel)]="x.correct">
-        <input type="text" name="option{{i}}" id="option{{i}}" [(ngModel)]="x.text" class="px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline">
+        <p class="inline-block mr-2 text-gray-600">Option
+           <span class="bg-purple-100 text-purple-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">{{i+1}}</span>
+          </p>
+        <input type="checkbox" class="mr-2" name="correct" [(ngModel)]="opt.correct">
+        <input type="text" name="option{{i}}" id="option{{i}}" [(ngModel)]="opt.text" class="px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline">
       </div>
       <button type="button" class="absolute right-0 flex items-center" (click)="deleteOption(i)">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-red-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -12,4 +14,3 @@
       </button>
     </li>
   </ul>
-  
