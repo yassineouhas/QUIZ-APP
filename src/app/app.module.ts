@@ -11,6 +11,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ChangeBgDirective } from './change-bg.directive';
 import { FormsModule } from "@angular/forms";
 import { OptionListComponent } from './option-list/option-list.component'; // Import OptionListModule
+import { ReactiveFormsModule } from '@angular/forms';
+
 // Import from library
 import {
   NgxAwesomePopupModule,
@@ -30,6 +32,7 @@ import {
     OptionListComponent
   ],
   imports: [BrowserModule,
+    ReactiveFormsModule,
     NgxAwesomePopupModule.forRoot(), // Essential, mandatory main module.
         DialogConfigModule.forRoot(), // Needed for instantiating dynamic components.
         ConfirmBoxConfigModule.forRoot(), // Needed for instantiating confirm boxes.
