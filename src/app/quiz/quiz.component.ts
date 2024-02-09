@@ -2,6 +2,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { QuestionService } from './../service/question.service'; 
+import { ToastEvokeService } from '@costlydeveloper/ngx-awesome-popup';
 
 @Component({
   selector: 'app-quiz',
@@ -11,7 +12,7 @@ import { QuestionService } from './../service/question.service';
 export class QuizComponent implements OnInit {
   formData: any = { "options": [{ "text": "", "correct": false }] };
 
-  constructor(private questionService: QuestionService) {}
+  constructor(private toastEvokeService: ToastEvokeService,private questionService: QuestionService) {}
 
   ngOnInit(): void {}
 
@@ -19,6 +20,8 @@ export class QuizComponent implements OnInit {
     console.log(this.formData);
 
     this.questionService.postQuestionJson(this.formData).subscribe(response => {
+      // Ngx Awesome Popup 
+      this.toastEvokeService.success('I am title!', 'I am a message!').subscribe();
       console.log('Response:', response);
       // Handle response as needed
       this.formData={ "options": [{ "text": "", "correct": false }] };
